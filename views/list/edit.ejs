@@ -1,0 +1,26 @@
+<%- layout('layouts/boilerplate') %>
+<body>
+    <form action="/listings/<%= singleData._id %>?_method=PUT" method="post">
+    <h3>Edit your Listing</h3>
+    <p><b>Id:</b> <%= singleData._id %></p>
+     <input type="text" value="<%= singleData.title %>" name="title">
+    <br>
+    <br>
+    <input type="text" value="<%= singleData.description %>" name="description">
+    <br>
+    <br>
+    <input type="url" value="<%= singleData.image %>" name="image">
+    <br>
+    <br>
+    <input type="number" value="<%= singleData.price %>" name="price">
+    <br>
+    <br>
+    <input type="text" value="<%= singleData.location %>" name="location">
+    <br>
+    <br>
+    <input type="text" value="<%= singleData.country %>" name="country">
+    <br>
+    <br>
+    <button>Edit</button>
+</form>
+</body>

@@ -1,0 +1,6 @@
+1. express set up
+2. mongoose set up
+3. creation of models + schema
+4. data init(add)
+5. CRUD operation perform.
+6. divide the code in small-small part and the connect
