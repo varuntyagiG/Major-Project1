@@ -90,3 +90,21 @@ body{
     background-color: #fe424d !important;
     border: none !important;
 }
+.edit-btn a{
+    text-decoration: none;
+    color: white;
+}
+.edit-btn{
+    border-radius: 2rem;
+    background-color: rgba(0, 128, 0, 0.737);
+}
+
+
+.edit-btn-1{
+    border-radius: 2rem;
+    background-color: #fe424d;
+    color: white;
+}
+
+
+

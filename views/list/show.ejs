@@ -1,8 +1,9 @@
 <%- layout('layouts/boilerplate') %>
-
+     <br>
     <h3>Listings Details :</h3>
+    <br>
     <div class="card" style="width: 18rem;">
-        <img src="<%= allData.image %>" class="card-img-top" alt="Listing_image">
+        <img src="<%= allData.image %>" class="card-img-top " alt="Listing_image" >
         <div class="card-body">
           <p class="card-text">
             <ul>
@@ -17,10 +18,10 @@
       </div>
     <ul>
     <br>
-    <button><a href="/listings/<%= allData._id %>/edit">Edit Data</a></button>
+    <button class="edit-btn"><a href="/listings/<%= allData._id %>/edit">Edit Data</a></button>
     <br>
     <br>
     <form action="/listings/<%= allData._id %>/delete?_method=DELETE" method="post">
-    <button>Delete this Listing</button>
+    <button class="edit-btn-1">Delete this Listing</button>
 </form>
 
