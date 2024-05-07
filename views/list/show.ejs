@@ -1,13 +1,21 @@
 <%- layout('layouts/boilerplate') %>
-<body>
+
     <h3>Listings Details :</h3>
+    <div class="card" style="width: 18rem;">
+        <img src="<%= allData.image %>" class="card-img-top" alt="Listing_image">
+        <div class="card-body">
+          <p class="card-text">
+            <ul>
+                <li><b><%= allData.title %></b> </li>
+                <li> <%= allData.description %></li>
+                 <li>&#8377; <%= allData.price.toLocaleString('en-IN') %> </li>
+                <li><%= allData.location %></li>
+                <li><%= allData.country %> </li>
+            </ul>
+          </p>
+        </div>
+      </div>
     <ul>
-        <li><%= allData.title %></li>
-        <li><%= allData.description %></li>
-        <li> &#8377; <%= allData.price.toLocaleString('en-IN') %></li>
-        <li><%= allData.location %></li>
-        <li><%= allData.country %></li>
-    </ul>
     <br>
     <button><a href="/listings/<%= allData._id %>/edit">Edit Data</a></button>
     <br>
@@ -15,4 +23,4 @@
     <form action="/listings/<%= allData._id %>/delete?_method=DELETE" method="post">
     <button>Delete this Listing</button>
 </form>
-</body>
+

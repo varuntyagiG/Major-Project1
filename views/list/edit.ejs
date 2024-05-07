@@ -1,26 +1,40 @@
 <%- layout('layouts/boilerplate') %>
-<body>
+<div class="row">
+<div class="col-8 offset-2">
+    <br>
+    <br>
     <form action="/listings/<%= singleData._id %>?_method=PUT" method="post">
-    <h3>Edit your Listing</h3>
-    <p><b>Id:</b> <%= singleData._id %></p>
-     <input type="text" value="<%= singleData.title %>" name="title">
+    <h3>Edit your Listing :</h3>
+    <br>
+    <p><b>Id:</b>   <%= singleData._id %></p>
+    <div class="mb-3">
+    <label for="title" class="form-label" ><b>Title :</b></label>
+     <input type="text" value="<%= singleData.title %>" name="title" class="form-control" id="title">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label" ><b>Description:</b></label>
+    <input type="text" value="<%= singleData.description %>" name="description" class="form-control" id="description">
+</div>
+<div class="mb-3">
+    <label for="image" class="form-label"><b>Image:</b></label>
+    <input type="url" value="<%= singleData.image %>" name="image" class="form-control" id="image">
+</div>
+<div class="mb-3">
+    <label for="price" class="form-label"><b>Price:</b></label>
+    <input type="number" value="<%= singleData.price %>" name="price" class="form-control" id="price">
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label"><b>Location:</b></label>
+    <input type="text" value="<%= singleData.location %>" name="location" id="location" class="form-control">
+</div>
+    <div class="mb-3">
+        <label for="country" class="form-label"><b>Country:</b></label>
+    <input type="text" value="<%= singleData.country %>" name="country" class="form-control" id="country">
+</div>
     <br>
     <br>
-    <input type="text" value="<%= singleData.description %>" name="description">
-    <br>
-    <br>
-    <input type="url" value="<%= singleData.image %>" name="image">
-    <br>
-    <br>
-    <input type="number" value="<%= singleData.price %>" name="price">
-    <br>
-    <br>
-    <input type="text" value="<%= singleData.location %>" name="location">
-    <br>
-    <br>
-    <input type="text" value="<%= singleData.country %>" name="country">
-    <br>
-    <br>
-    <button>Edit</button>
+
+    <button class="btn btn-dark add-btn">Edit</button>
 </form>
-</body>
+</div>
+</div>

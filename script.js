@@ -94,7 +94,6 @@ app.post('/listings',async (req,res)=>{
 app.get('/listings/:id/edit',async (req,res)=>{
     let{id} = req.params;
     let singleData = await Listing.findById(id);
-    console.log(singleData);
     res.render('list/edit.ejs',{singleData});
 });
 
@@ -112,7 +111,6 @@ app.put('/listings/:id', async (req,res)=>{
         location : location,
         country : country
     },{runValidators : true , new : true});
-    console.log(updatedvalue);
     res.redirect('/listings');
 });
 
@@ -122,7 +120,8 @@ app.put('/listings/:id', async (req,res)=>{
 app.delete('/listings/:id/delete', async(req,res)=>{
     let {id} = req.params;
     let deleteElement = await Listing.findByIdAndDelete(id);
-    console.log(deleteElement);
     res.redirect('/listings');
 });
+
+
 
