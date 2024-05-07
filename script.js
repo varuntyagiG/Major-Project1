@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const Listing = require('./models/listing.js');
+const Listing = require('./models/listing.js');   // one dot means current directory
 const path = require('path');     
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');

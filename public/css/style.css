@@ -97,13 +97,15 @@ body{
 .edit-btn{
     border-radius: 2rem;
     background-color: rgba(0, 128, 0, 0.737);
-}
+    border: none !important;
 
+}
 
 .edit-btn-1{
     border-radius: 2rem;
     background-color: #fe424d;
     color: white;
+    border: none !important;
 }
 
 
