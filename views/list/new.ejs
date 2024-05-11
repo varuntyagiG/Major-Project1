@@ -4,34 +4,46 @@
         <div class="col-8 offset-2">
             <br>
             <br>
-    <form action="/listings" method="post">
+    <form action="/listings" class="needs-validation" method="post" novalidate>
         <h1>Create New Listing</h1>
         <div class="mb-3">
             <label for="title" class="form-label"><b> Title:</b></label>
-        <input name="title" , placeholder="Add a catchy title" id="title" class="form-control" >
+        <input name="title" , placeholder="Add a catchy title" id="title" class="form-control"  required>
+        <div class="valid-feedback">
+         Title Looks Good!
+        </div>
         </div>
         
          <div class="mb-3">
             <label for="text" class="form-label"> <b>Description:</b> </label>
-            <textarea name="description"  placeholder="description" class="form-control" id="text"></textarea>
+            <textarea name="description"  placeholder="description" class="form-control" id="text" required></textarea>
          </div>
         
         <div class="mb-3"> 
             <label for="url" class="form-label"><b>Link:</b></label>
-            <input type="url" placeholder="enter Image URL/Link" name="link" class="form-control" id="url">
+            <input type="url" placeholder="enter Image URL/Link" name="link" class="form-control" id="url" >
         </div>
         
         <div class="mb-3">
             <label for="price" class="form-label"><b>Price:</b></label>
-        <input name="price" , placeholder="enter price" type="number" class="form-control" id="price">
+        <input name="price" , placeholder="enter price"  class="form-control" id="price" required>
+        <div class="invalid-feedback">
+            Price Should Be Valid!
+           </div>
     </div>
         <div class="mb-3">
             <label for="location" class="form-label"><b>Location:</b></label>
-            <input name="location" , placeholder="Gurugaon , Haryana" id="location" class="form-control">
+            <input name="location" , placeholder="Gurugaon , Haryana" id="location" class="form-control" required>
+            <div class="invalid-feedback">
+               Location Should be Valid!
+               </div>
         </div>
        <div class="mb-3">
          <label for="country" class="form-label"><b>Country:</b></label>
-        <input name="country" , placeholder="India" id="country" class="form-control">
+        <input name="country" , placeholder="India" id="country" class="form-control" required>
+        <div class="invalid-feedback">
+            Country Should be Valid!
+           </div>
        </div>        
         <br>
         <br>

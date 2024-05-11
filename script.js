@@ -34,6 +34,7 @@ app.get('/',(req,res)=>{
     res.send("Server Work");
 });
 
+
 app.get('/testListing',async (req,res)=>{
     let samplelisting = new Listing({
         title :'My New Villa',
@@ -50,7 +51,6 @@ app.get('/testListing',async (req,res)=>{
     res.send("document Saved");
 });
   
-
 // index route
 app.get('/listings',async (req,res)=>{
     let lists = await Listing.find();
@@ -114,7 +114,6 @@ app.put('/listings/:id', async (req,res)=>{
     res.redirect('/listings');
 });
 
-
 // Delete route
 
 app.delete('/listings/:id/delete', async(req,res)=>{
@@ -122,6 +121,10 @@ app.delete('/listings/:id/delete', async(req,res)=>{
     let deleteElement = await Listing.findByIdAndDelete(id);
     res.redirect('/listings');
 });
+
+
+
+
 
 
 
