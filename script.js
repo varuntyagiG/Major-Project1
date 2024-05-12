@@ -48,7 +48,7 @@ app.get('/testListing',async (req,res)=>{
         console.log(res);
     }).catch((err)=>{
         console.log(err);
-    });
+    })
     res.send("document Saved");
 });
   
