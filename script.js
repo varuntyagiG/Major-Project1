@@ -5,6 +5,7 @@ const Listing = require('./models/listing.js');   // one dot means current direc
 const path = require('path');     
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const wrapAsync = require('./utils/wrapasync.js');
 
 
 app.set('view engine','ejs');
@@ -77,8 +78,8 @@ app.get('/listings/new',(req,res)=>{
 });
 
 //create route
-app.post('/listings',async (req,res,next)=>{
-    try{
+app.post('/listings',wrapAsync(async(req,res,next)=>{
+   
         let{title,description,image,price,location,country} = req.body;
         let newListDb = new Listing({
             title : title,
@@ -90,10 +91,7 @@ app.post('/listings',async (req,res,next)=>{
         });
         await newListDb.save();
         res.redirect('/listings');
-    }catch(err){
-        next(err);
-    }
-});
+}));
 
         
 // edit route
@@ -103,6 +101,8 @@ app.get('/listings/:id/edit',async (req,res)=>{
     let singleData = await Listing.findById(id);
     res.render('list/edit.ejs',{singleData});
 });
+
+
 
 //update route
 
@@ -132,7 +132,6 @@ app.delete('/listings/:id/delete', async(req,res)=>{
 
 // Custom Err Handlor
 app.use((err,req,res,next)=>{
-    console.log('err-occur');
     res.send('Some Err Occur');
 });
 
