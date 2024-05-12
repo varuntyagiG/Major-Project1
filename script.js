@@ -52,16 +52,22 @@ app.get('/testListing',async (req,res)=>{
 });
   
 // index route
-app.get('/listings',async (req,res)=>{
-    let lists = await Listing.find();
-    res.render('list/app.ejs',{lists});     // line ka mtlb h list folder k under app.ejs file h
+app.get('/listings',async (req,res,next)=>{
+    try{
+        let lists = await Listing.find();
+        res.render('list/app.ejs',{lists});     // line ka mtlb h list folder k under app.ejs file h
+    }catch(err){
+        next(err);
+    }
 });
 
 // show route
 app.get('/lists/:id',async (req,res)=>{
-    let{id} = req.params;
+   
+        let{id} = req.params;
     let allData = await Listing.findById(id);
     res.render('list/show.ejs',{allData});
+    
 });
   
 // new route
@@ -71,24 +77,25 @@ app.get('/listings/new',(req,res)=>{
 });
 
 //create route
-app.post('/listings',async (req,res)=>{
-    let{title,description,image,price,location,country} = req.body;
-    let newListDb = new Listing({
-        title : title,
-        description : description,
-        image : image,
-        price : price,
-        location : location,
-        country : country
-    });
-    await newListDb.save().then((res)=>{
-        console.log(res);
-    }).catch((err)=>{
-        console.log(err);
-    });
-    res.redirect('/listings');
+app.post('/listings',async (req,res,next)=>{
+    try{
+        let{title,description,image,price,location,country} = req.body;
+        let newListDb = new Listing({
+            title : title,
+            description : description,
+            image : image,
+            price : price,
+            location : location,
+            country : country
+        });
+        await newListDb.save();
+        res.redirect('/listings');
+    }catch(err){
+        next(err);
+    }
 });
 
+        
 // edit route
 
 app.get('/listings/:id/edit',async (req,res)=>{
@@ -120,6 +127,13 @@ app.delete('/listings/:id/delete', async(req,res)=>{
     let {id} = req.params;
     let deleteElement = await Listing.findByIdAndDelete(id);
     res.redirect('/listings');
+});
+
+
+// Custom Err Handlor
+app.use((err,req,res,next)=>{
+    console.log('err-occur');
+    res.send('Some Err Occur');
 });
 
 
